@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="filterModule" ng-controller="filterController">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Filter Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./angular.js"></script>
+  </head>
+  <body>
+    <script>
+      angular
+        .module('filterModule', [])
+        .controller('filterController', function($scope) {
+          $scope.amount = '1234.56';
+        });
+    </script>
+
+    Amount: <input type="number" ng-model="amount" aria-label="amount"/>
+
+    <p>
+      Default amount : <span>{{ amount | currency }}</span>
+    </p>
+
+    <p>
+        Amount with Symbol (USD$): <span>{{amount | currency : "USD$"}}</span>
+    </p>
+
+    <p>
+        Amount with Symbol and Fraction size: <span>{{amount | currency:"USD$":4}}</span>
+    </p>
+  </body>
+</html>

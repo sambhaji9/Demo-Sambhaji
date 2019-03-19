@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="studentModule">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Student Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./angular.js"></script>
+    <script src="./student.js"></script>
+    <script src="./cacheService.js"></script>
+    <script src="./logService.js"></script>
+</head>
+<body ng-controller="studentController as studCtrl">
+    
+    <div>
+        <label>Roll no. <input type="text" ng-model="user.rollNo" ng-blur="studCtrl.fetchData(user)"></label><br><br>
+
+        <label>Name <input type="text" ng-model="user.name"></label><br><br>
+
+        <button ng-click="studCtrl.save(user)">SAVE</button>&nbsp;&nbsp;<button>CANCEL</button>
+    </div>
+
+</body>
+</html>

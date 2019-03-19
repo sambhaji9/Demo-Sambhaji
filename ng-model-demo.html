@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="simpleModule">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Angular Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./angular.js"></script>
+  </head>
+
+
+  <body>
+    <div ng-controller="SimpleController">
+      <input type="text" data-ng-model="nameFilter" />{{ nameFilter }}
+
+      <ul>
+        <li data-ng-repeat="name in names | filter: nameFilter | orderBy: name">
+          {{ name.name | uppercase }}, {{ name.age}}
+        </li>
+      </ul>
+    </div>
+
+    <script>
+
+      angular.module("simpleModule", []).controller("SimpleController",function($scope) {
+        $scope.names = [
+          { name: 'Aaradhya', age: '2' },
+          { name: 'Satyam', age: '9' },
+          { name: 'Sadhana', age: '29' },
+          { name: 'Sambhaji', age: '37' }
+        ];
+      });
+    </script>
+
+    <h4>$scope is ViewModel</h4>
+    <h4>
+      $scope is glue between View and the controller, it ties the view and the
+      controller
+    </h4>
+    <h4>$scope get injected dynamically</h4>
+  </body>
+</html>
